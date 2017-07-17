@@ -1,13 +1,20 @@
 'use strict';
 
 import React, { Component } from 'react';
-//import { Link } from 'react-router';
+import Photo from './Photo';
+import Comments from './Comments';
+
 
 class Single extends Component{
   render(){
+    // index of the post
+    // get us the post
+    const i = this.props.posts.findIndex( (post) => post.code === this.props.params.postId);
+    const post = this.props.posts[i];
     return (
       <div className="single-photo">
-        single single single
+        <Photo  i={i} post={post} {...this.props} />
+        <Comments />
       </div>
     )
   }
